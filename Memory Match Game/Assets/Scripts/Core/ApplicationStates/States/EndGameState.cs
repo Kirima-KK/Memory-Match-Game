@@ -23,7 +23,7 @@ namespace MemoryMatch.Core.ApplicationStates.States
         public override void StateIn(params object[] args)
         {
             Debug.Log($"[StateIn] Enter {Name}");
-            m_EndGameplayController = Object.FindObjectsOfType<MonoBehaviour>().OfType<IEndGameControllable>().FirstOrDefault();
+            m_EndGameplayController = Object.FindObjectsByType<MonoBehaviour>().OfType<IEndGameControllable>().FirstOrDefault();
             m_EndGameplayController.OnBackToMenu += BackToMenuHandler;
             m_EndGameplayController.OnRestart += RestartGameHandler;
 

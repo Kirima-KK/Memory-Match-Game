@@ -20,7 +20,7 @@ namespace MemoryMatch.Core.ApplicationStates.States
         public override void StateIn(params object[] args)
         {
             Debug.Log($"[StateIn] Enter {Name}");
-            m_GameplayController = Object.FindObjectsOfType<MonoBehaviour>().OfType<IGameplayControllable>().FirstOrDefault();
+            m_GameplayController = Object.FindObjectsByType<MonoBehaviour>().OfType<IGameplayControllable>().FirstOrDefault();
             m_GameplayController.StartGameplay();
             m_GameplayController.OnGameplayEnded += GameplayEndedHandler;
         }

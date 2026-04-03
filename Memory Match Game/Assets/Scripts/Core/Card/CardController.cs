@@ -32,16 +32,14 @@ namespace MemoryMatch.Core.Card
 
         private const float CardLifeTime = 0.5f;
         private const float TotalCardAmount = 16;
+        private RectTransform rect;
 
         public UnityAction OnAllCardFliped { get; set; }
 
-        private void Awake()
-        {
-            SetupGridSize();
-        }
-
         private void Update()
         {
+            //SetupGridSize();
+
             if (CheckIsAllCardFliped())
             {
                 OnAllCardFliped?.Invoke();
@@ -143,34 +141,25 @@ namespace MemoryMatch.Core.Card
             }
         }
 
-        private void SetupGridSize()
-        {
-            // Get container size
-            var rectTransform = m_CardContainer.GetComponent<RectTransform>();
-            float containerHeight = rectTransform.rect.height;
+        //private void SetupGridSize()
+        //{
+        //    if (rect == null) rect = m_CardContainer.GetComponent<RectTransform>();
 
-            // Subtract Left and Right padding
-            float totalPadding = m_LayoutGroup.padding.top + m_LayoutGroup.padding.bottom;
-            float availableHeight = containerHeight - totalPadding;
+        //    int gridRowColumns = m_LayoutGroup.constraintCount;
 
-            // Subtract the spacing between columns
-            int row = m_LayoutGroup.constraintCount;
-            float totalSpacing = m_LayoutGroup.spacing.y * (row - 1);
-            float finalHeight = (availableHeight - totalSpacing) / row;
+        //    // Get container dimensions minus padding
+        //    float width = rect.rect.width - (m_LayoutGroup.padding.left + m_LayoutGroup.padding.right);
+        //    float height = rect.rect.height - (m_LayoutGroup.padding.top + m_LayoutGroup.padding.bottom);
 
-            // Set the cell size (keeping it within bounds)
-            float aspectRatio = 1f;
-            if (finalHeight > 0)
-            {
-                m_LayoutGroup.cellSize = new Vector2(finalHeight * aspectRatio, finalHeight);
-            }
+        //    // Calculate available space minus spacing
+        //    float cellW = (width - (m_LayoutGroup.spacing.x * (gridRowColumns - 1))) / gridRowColumns;
+        //    float cellH = (height - (m_LayoutGroup.spacing.y * (gridRowColumns - 1))) / gridRowColumns;
 
-            Debug.Log("m_LayoutGroup.constraintCount" + m_LayoutGroup.constraintCount);
-            Debug.Log("totalPadding" + totalPadding);
-            Debug.Log("availableHeight" + availableHeight);
-            Debug.Log("totalSpacing" + totalSpacing);
-            Debug.Log("layout cellsize" + m_LayoutGroup.cellSize);
-            Debug.Log("containerHeight" + containerHeight);
-        }
+        //    // Use the smaller value to ensure it fits both ways (Perfect Squares)
+        //    float finalSize = Mathf.Min(cellW, cellH);
+
+        //    if (finalSize > 0)
+        //        m_LayoutGroup.cellSize = new Vector2(finalSize, finalSize);
+        //}
     }
 }

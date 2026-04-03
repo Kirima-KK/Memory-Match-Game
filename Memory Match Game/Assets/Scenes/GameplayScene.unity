@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213138413}
   - component: {fileID: 213138414}
+  - component: {fileID: 213138415}
   m_Layer: 5
   m_Name: CardContainer
   m_TagString: Untagged
@@ -153,7 +154,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -300, y: 0}
+  m_SizeDelta: {x: -704.36194, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &213138414
 MonoBehaviour:
@@ -179,6 +180,20 @@ MonoBehaviour:
   m_Spacing: {x: 48, y: 8}
   m_Constraint: 1
   m_ConstraintCount: 4
+--- !u!114 &213138415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213138412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &274791010
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,9 +23,9 @@ namespace MemoryMatch.Utilities
 
                 if(instance == null)
                 {
-                    instance = FindObjectOfType<T>();
+                    instance = FindAnyObjectByType<T>();
 
-                    if(FindObjectsOfType(typeof(T)).Length > 1)
+                    if(FindObjectsByType(typeof(T)).Length > 1)
                     {
                         print("has duplicated singleton");
                         return instance;
